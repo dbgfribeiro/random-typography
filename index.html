@@ -12,11 +12,17 @@
   <main>
     <div class="form">
       <input type="text" placeholder="Your message" id="message">
-      <button onclick="getLetter()" id="submit-btn">Submit</button>
-      <button onclick="clearText()" id="clear-btn">Clear</button>
+      <button onclick="getLetter()" id="submit-btn" type="submit">Submit</button>
     </div>
 
-    <div id="canvas-container"></div>
+    <div class="result">
+      <div id="canvas-container"></div>
+
+      <div class="result-controls">
+        <button onclick="clearText()" id="clear-btn">Clear</button>
+        <button onclick="saveCanvas('my-message', 'jpg')" id="save-btn">Save</button>
+      </div>
+    </div>
   </main>
   
   <script src="./js/alphabeth.js"></script>

@@ -1,24 +1,35 @@
+let result = document.querySelector('.result');
+
 function getLetter() {
   text = document.getElementById("message").value;
   letters = text.split('');
-  //console.log(letters);
   
+  clearText();
+  result.style.display = "flex";
+
   for (var i = 0 ; i < letters.length ; i++) {
+
     if(letters[i] === 'a' || letters[i] === 'A') {
-      selectedLetter = letterA;
+      finalMessage.push(a)
     }
     else if(letters[i] === 'b' || letters[i] === 'B') {
-      selectedLetter = letterB;
+      finalMessage.push(b)
     }
     else if(letters[i] === 'c' || letters[i] === 'C') {
-      selectedLetter = letterC;
+      finalMessage.push(c)
+    }
+    else if(letters[i] === 'd' || letters[i] === 'D') {
+      finalMessage.push(d)
     }
   }
   
-  lettersCount += 120*letters.length;
-  console.log(lettersCount);
+  lettersCount += (120 + rectSize) * letters.length;
+  console.log(finalMessage);
 }
 
 function clearText() {
   lettersCount = 0;
+  text = 0;
+  finalMessage = [];
+  result.style.display = "none";
 }
