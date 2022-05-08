@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./styles/style.css">
   <title>Random Typography</title>
 </head>
 <body>  
@@ -32,14 +32,14 @@
 
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js'
-    import { getStorage, ref, uploadBytes, listAll } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-storage.js'
+    import { getStorage, ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-storage.js'
 
     /*-------------Initalize storage------------*/
     const app = initializeApp(firebaseConfig);
     const storage = getStorage(app);
 
     /*-------------Add canvas to storage------------*/
-    const storageRef = ref(storage, 'images/' + Math.random(999999999) + '.png');
+    const storageRef = ref(storage, 'images/message.png');
 
     document.getElementById('save-btn').onclick = function(){
 

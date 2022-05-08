@@ -1,4 +1,5 @@
-let rectSize = 20;
+cnv = document.querySelector('canvas');
+let rectSize;
 let text, letters = [];
 let cols = 6;
 let rows = 10;
@@ -11,13 +12,19 @@ let randomShape = null;
 const fillShape = { r: 0, g: 0, b: 0};
 
 function setup() {
-  let cnv = createCanvas(400, 200);
+  let cnv = createCanvas(400, rectSize*10);
   cnv.parent('canvas-container');
 }
 
 function draw() {
-  resizeCanvas(lettersCount, 200, false);
-  background('#101010')
+  if (lettersCount >= windowWidth) {
+    rectSize = 10;
+  }
+  else {
+    rectSize = 20;
+  }
+  resizeCanvas(lettersCount-rectSize, rectSize*10, false);
+  // background('#f00');
   
   tracking = rectSize;
   let x = 0;
@@ -62,4 +69,7 @@ function setShape() {
   fillShape.b = random(0,255);
   randomShape = Math.floor(Math.random() * shapes.length);
   noLoop();
+}
+
+function setWidth() {
 }

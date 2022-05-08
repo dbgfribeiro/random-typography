@@ -1,0 +1,17 @@
+main{
+  background-color: #e5e5e5;
+}
+.artboard{
+  background-color: #101010;
+
+  height: 877px;
+  width: 620px;
+
+  overflow: hidden;
+}
+
+.artboard #generatedMessage{
+  position:relative;
+  max-width: 80%;
+  cursor: move;
+}

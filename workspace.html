@@ -4,15 +4,53 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/workspace.css">
+  <title>Workspace - Random Typography</title>
 </head>
 <body>
-  <h1>Test</h1>
-  <img src="" alt="test.img" id="test">
+
+  <main>
+
+    <div class="artboard">
+      <img id="generatedMessage" src="" alt="text">
+    </div>
+    <button id="download-btn">Download</button>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js'
+    import { getStorage, ref, listAll, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-storage.js'
+
+    /*-------------Initalize storage------------*/
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    getDownloadURL(ref(storage, 'images/message.png'))
+      .then((url) => {
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob';
+        xhr.onload = (event) => {
+          const blob = xhr.response;
+        };
+        xhr.open('GET', url);
+        xhr.send();
+        const img = document.getElementById('generatedMessage');
+        img.setAttribute('src', url);
+      })
+      .catch((error) => {
+        console.log('something went wrong');
+      });
+  
+  </script>
 
   <script src="./js/alphabeth.js"></script>
   <script src="./js/form.js"></script>
   <script src="./js/grid.js"></script>
+  <script src="./js/firebase.js"></script>
+  <script src="./js/workspace.js"></script>
+
 </body>
 </html>

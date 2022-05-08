@@ -22,8 +22,7 @@ function getLetter() {
       finalMessage.push(d)
     }
   }
-  
-  lettersCount += (120 + rectSize) * letters.length;
+  lettersCount += ((cols * rectSize) + rectSize) * letters.length;
 }
 
 function clearText() {
