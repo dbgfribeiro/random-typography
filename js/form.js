@@ -24,7 +24,6 @@ function getLetter() {
   }
   
   lettersCount += (120 + rectSize) * letters.length;
-  console.log(finalMessage);
 }
 
 function clearText() {

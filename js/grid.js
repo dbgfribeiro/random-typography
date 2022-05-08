@@ -4,9 +4,10 @@ let cols = 6;
 let rows = 10;
 let tracking;
 let lettersCount = 0;
-let finalMessage = [];
+let finalMessage = []
 
 const shapes = ['rectangle', 'triangle', 'circle'];
+let randomShape = null;
 const fillShape = { r: 0, g: 0, b: 0};
 
 function setup() {

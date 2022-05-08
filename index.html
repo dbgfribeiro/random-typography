@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="style.css">
   <title>Random Typography</title>
 </head>
-<body>
+<body>  
   <main>
     <div class="form">
       <input type="text" placeholder="Your message" id="message">
@@ -20,13 +19,42 @@
 
       <div class="result-controls">
         <button onclick="clearText()" id="clear-btn">Clear</button>
-        <button onclick="saveCanvas('my-message', 'jpg')" id="save-btn">Save</button>
+        <button id="save-btn">Save</button>
       </div>
     </div>
   </main>
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="./js/alphabeth.js"></script>
   <script src="./js/form.js"></script>
   <script src="./js/grid.js"></script>
+  <script src="./js/firebase.js"></script>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js'
+    import { getStorage, ref, uploadBytes, listAll } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-storage.js'
+
+    /*-------------Initalize storage------------*/
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    /*-------------Add canvas to storage------------*/
+    const storageRef = ref(storage, 'images/' + Math.random(999999999) + '.png');
+
+    document.getElementById('save-btn').onclick = function(){
+
+      document.querySelector("canvas").toBlob(function(blob) {
+        var newImg = document.createElement('img');
+        newImg.src = URL.createObjectURL(blob);
+        
+        uploadBytes(storageRef, blob).then((snapshot) => {
+          console.log('Image uploaded!');
+          window.location.href = "workspace.html";
+        });
+
+      });
+    }
+  
+  </script>
 </body>
 </html>
