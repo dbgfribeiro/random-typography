@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/style.css">
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script src="./js/mail.js"></script>
   <title>Random Typography</title>
 </head>
 <body>  
@@ -20,8 +22,18 @@
       <div class="result-controls">
         <button onclick="clearText()" id="clear-btn">Clear</button>
         <button id="save-btn">Save</button>
+        <button id="download-btn">Download</button>
+      </div>
+
+      <div class="send-email">
+        <img src="" alt="" id="img-test">
+        <form method="post">
+          <input type="text" placeholder="Your e-mail" id="email">
+          <input type="button" value="Send Email" onclick="sendEmail()" id="send-email-btn"/>
+        </form>  
       </div>
     </div>
+    
   </main>
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -32,28 +44,79 @@
 
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js'
-    import { getStorage, ref, uploadBytes } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-storage.js'
+    import { getStorage, ref, uploadBytes, listAll, getDownloadURL , getMetadata} from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-storage.js'
 
     /*-------------Initalize storage------------*/
     const app = initializeApp(firebaseConfig);
     const storage = getStorage(app);
 
-    /*-------------Add canvas to storage------------*/
-    const storageRef = ref(storage, 'images/message.png');
+    /*-------------Add canvas to storage--------------*/
+    const storageRef = ref(storage, 'images/word' +  new Date().getTime() + '.png');
+
+    var newImg = document.createElement('img');
 
     document.getElementById('save-btn').onclick = function(){
-
       document.querySelector("canvas").toBlob(function(blob) {
-        var newImg = document.createElement('img');
         newImg.src = URL.createObjectURL(blob);
         
         uploadBytes(storageRef, blob).then((snapshot) => {
           console.log('Image uploaded!');
-          window.location.href = "workspace.html";
+          document.querySelector('.send-email').style.display = 'flex';
+          document.querySelector('.form').style.display = 'none';
         });
-
       });
     }
+
+    /*-------------Get storaged images--------------*/
+    let allImages;
+    let storageImg;
+    let eventImages = [];
+
+    export let test = "teste";
+    
+    const listRef = ref(storage, 'images');
+    listAll(listRef).then((res) => {
+      
+      allImages = (res.items).length;
+      res.items.forEach((itemRef, i) => {
+        
+        const downloadUrl = getDownloadURL(ref(storage, itemRef));
+        downloadUrl.then((url) => {
+          if(i === allImages-1) {
+            storageImg = url;
+          }
+          console.log(storageImg);
+          }).catch((error) => {
+            console.log('Something went wrong');
+          });
+        });
+      });
+    
+
+    /*-------------Send E-mail--------------*/
+
+    document.getElementById('send-email-btn').onclick = function(){
+      // console.log(storageImg);
+      let email = document.getElementById("email").value;
+      Email.send({
+      Host: "smtp.gmail.com",
+      Username : "lucienne.roberts.darq@gmail.com",
+      Password : "",
+      To : email,
+      From : "lucienne.roberts.darq@gmail.com",
+      Subject : "test subject",
+      Body : "<img src='" + storageImg + "' />",
+      }).then(
+        message => alert("mail sent successfully to " + email)
+      );
+    }
+
+    // document.getElementById('download-btn').onclick = function(){
+    //   var link = document.createElement('a');
+    //   link.download = 'filename.png';
+    //   link.href = document.querySelector('canvas').toDataURL()
+    //   link.click();
+    // }
   
   </script>
 </body>

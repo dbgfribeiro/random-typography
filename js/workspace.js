@@ -40,3 +40,20 @@ window.onload = function() {
   document.onmousedown = startDrag;
   document.onmouseup = stopDrag;
 }
+
+let artboard = document.querySelector(".artboard");
+let image = document.getElementById("generatedMessage");
+function setFinalResult() {
+  html2canvas(artboard, { allowTaint: true, imageTimeout: 0 }).then(canvas => {
+    document.querySelector(".final-result").appendChild(canvas);
+  });
+  document.querySelector(".final-result").style.display = "flex";
+}
+
+function download() {
+  document.querySelector('canvas').toBlob(function(blob){
+    link.href = URL.createObjectURL(blob);
+    console.log(blob);
+    console.log(link.href); // this line should be here
+  },'image/png');
+}

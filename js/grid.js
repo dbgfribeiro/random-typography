@@ -2,7 +2,7 @@ cnv = document.querySelector('canvas');
 let rectSize;
 let text, letters = [];
 let cols = 6;
-let rows = 10;
+let rows = 9;
 let tracking;
 let lettersCount = 0;
 let finalMessage = []
