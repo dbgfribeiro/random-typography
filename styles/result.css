@@ -1,0 +1,46 @@
+.result{
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+
+  background-color: #101010;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+}
+
+.result h2{
+  color: white;
+  font-size: 3rem;
+  margin-top: -15rem;
+}
+
+#canvas-container {
+  display: block;
+  margin-top: 24px;
+}
+.result-controls {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  right: 4rem;
+  bottom: 4rem;
+}
+.result-controls button{
+  background-color: white;
+  border-style: none;
+  width: 186px;
+  height: 72px;
+  padding: 16px;
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.result-controls #clear-btn {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}

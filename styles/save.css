@@ -1,0 +1,41 @@
+.send-email {
+  background-color: #101010;
+  width: 100%;
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+}
+
+.send-email h2{
+  color: white;
+}
+
+.send-email a{
+  color: white;
+  font-size: 1.5rem;
+}
+
+
+form input{
+  background-color: transparent;
+  border-style: none;
+  border-bottom: 1px solid #fff;
+  color: #ffff;
+  width: 648px;
+  padding: 16px;
+  height: 72px;
+  font-size: 2rem;
+}
+form button{
+  background-color: white;
+  border-style: none;
+  width: 186px;
+  height: 72px;
+  padding: 16px;
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}

@@ -3,49 +3,80 @@
   padding: 0;
   box-sizing: border-box;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 72px #101010 inset !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+@font-face{
+  src: url(../assets/fonts/ClashDisplay-Regular.otf);
+  font-family: Clash;
+}
+@font-face{
+  src: url(../assets/fonts/ClashDisplay-Light.otf);
+  font-family: Clash-Light;
+}
+@font-face{
+  src: url(../assets/fonts/ClashDisplay-Medium.otf);
+  font-family: Clash-Medium;
+}
+@font-face{
+  src: url(../assets/fonts/ClashDisplay-Bold.otf);
+  font-family: Clash-Bold;
+}
+
 body{
   background-color: #101010;
 }
-main {
-  display: flex;
-  flex-direction: column;
+
+p, a, input{
+  font-family: Clash;
+  color: white;
+}
+
+button {
+  font-family: Clash-Medium;
+}
+
+h2 {
+  font-family: Clash-Light;
+  font-size: 2rem;
+}
+
+.form{
+  /* display: flex; */
+  display: none;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
-
-.result{
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  display: none;
-
-  background-color: #101010;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.form input{
+  background-color: transparent;
+  border-style: none;
+  border-bottom: 1px solid #fff;
+  color: #ffff;
+  width: 648px;
+  padding: 16px;
+  height: 72px;
+  font-size: 2rem;
 }
-#canvas-container {
-  display: block;
-  margin-top: 24px;
-  padding: 20px 0 20px 20px;
-}
-.result-controls {
-  position: absolute;
-  right: 2rem;
-  top: 2rem;
-}
-
-.send-email {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100vh;
-  display: none;
-
-  background-color: #f00;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.form button{
+  background-color: white;
+  border-style: none;
+  width: 186px;
+  height: 72px;
+  padding: 16px;
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
 }

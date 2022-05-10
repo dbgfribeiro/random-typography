@@ -12,7 +12,7 @@ let randomShape = null;
 const fillShape = { r: 0, g: 0, b: 0};
 
 function setup() {
-  let cnv = createCanvas(400, rectSize*10);
+  let cnv = createCanvas(400, rectSize*rows);
   cnv.parent('canvas-container');
 }
 
@@ -23,7 +23,7 @@ function draw() {
   else {
     rectSize = 20;
   }
-  resizeCanvas(lettersCount-rectSize, rectSize*10, false);
+  resizeCanvas(lettersCount-rectSize, rectSize*rows, false);
   // background('#f00');
   
   tracking = rectSize;

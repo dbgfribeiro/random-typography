@@ -1,0 +1,16 @@
+body {
+  overflow: hidden;
+}
+.gallery {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  min-height: 100vh;
+}
+.gallery img{
+  height: 180px;
+  position: relative;
+}

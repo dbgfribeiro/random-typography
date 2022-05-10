@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/gallery.css">
+  <title>Gallery</title>
+</head>
+<body>
+  <div class="gallery">
+  </div>
+  
+  <script src="./js/firebase.js"></script>
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js'
+    import { getStorage, ref, uploadBytes, listAll, getDownloadURL , getMetadata} from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-storage.js'
+
+    /*-------------Initalize storage------------*/
+    const app = initializeApp(firebaseConfig);
+    const storage = getStorage(app);
+
+    /*-------------Get storaged images--------------*/
+    let gallery = document.querySelector('.gallery');
+    let allImages;
+    
+    const listRef = ref(storage, 'images');
+    listAll(listRef).then((res) => {
+
+      allImages = res.items.length;
+      console.log(allImages);
+
+      res.items.forEach((itemRef) => {
+        
+        const downloadUrl = getDownloadURL(ref(storage, itemRef));
+        downloadUrl.then((url) => {
+
+          //Create an image tag for each url
+          let newImg = document.createElement('img');
+          newImg.src = url;
+          gallery.appendChild(newImg);
+
+          //Random positionning every image
+          const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
+            setInterval(() => {
+              newImg.style.left = getRandom(0, window.innerWidth)+'px';
+              newImg.style.top = getRandom(0, window.innerHeight)+'px';  
+            }, 500);
+
+          }).catch((error) => {
+            console.log('Something went wrong');
+          });
+        });
+      });
+  </script>
+</body>
+</html>

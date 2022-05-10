@@ -4,34 +4,55 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/style.css">
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="./js/mail.js"></script>
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/result.css">
+  <link rel="stylesheet" href="./styles/save.css">
+  <link rel="stylesheet" href="./styles/select-font.css">
   <title>Random Typography</title>
 </head>
 <body>  
   <main>
+    <div class="font-selector">
+      <h2>Select the font : </h2>
+      <div class="fonts-list">
+        <button id="alex">
+          <img src="./assets/fonts/alex_font.png" alt="font-preview">
+        </button>
+        <button id="carlota">
+          <img src="./assets/fonts/carlota_font.png" alt="font-preview">
+        </button>
+        <button id="francisca">
+          <img src="./assets/fonts/francisca_font.png" alt="font-preview">
+        </button>
+      </div>
+    </div>
+
     <div class="form">
       <input type="text" placeholder="Your message" id="message">
       <button onclick="getLetter()" id="submit-btn" type="submit">Submit</button>
     </div>
 
     <div class="result">
+      <h2>Here is the result!</h2>
+
       <div id="canvas-container"></div>
 
       <div class="result-controls">
-        <button onclick="clearText()" id="clear-btn">Clear</button>
+        <button onclick="location.href = '/';" id="clear-btn">Clear</button>
         <button id="save-btn">Save</button>
-        <button id="download-btn">Download</button>
       </div>
 
-      <div class="send-email">
-        <img src="" alt="" id="img-test">
-        <form method="post">
-          <input type="text" placeholder="Your e-mail" id="email">
-          <input type="button" value="Send Email" onclick="sendEmail()" id="send-email-btn"/>
-        </form>  
-      </div>
+    </div>
+
+    <div class="send-email">
+      <h2>Send it to your email!</h2>
+      <form method="post">
+        <input type="text" placeholder="Your e-mail" id="email">
+        <button type="submit" onclick="sendEmail()" id="send-email-btn">Send</button>
+      </form>
+      <a href="gallery.html">Just take me to the gallery</a>
     </div>
     
   </main>
@@ -41,6 +62,7 @@
   <script src="./js/form.js"></script>
   <script src="./js/grid.js"></script>
   <script src="./js/firebase.js"></script>
+  <script src="./js/secret.js"></script>
 
   <script type="module">
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.0/firebase-app.js'
@@ -62,6 +84,7 @@
         uploadBytes(storageRef, blob).then((snapshot) => {
           console.log('Image uploaded!');
           document.querySelector('.send-email').style.display = 'flex';
+          document.querySelector('.result').style.display = 'none';
           document.querySelector('.form').style.display = 'none';
         });
       });
@@ -70,9 +93,6 @@
     /*-------------Get storaged images--------------*/
     let allImages;
     let storageImg;
-    let eventImages = [];
-
-    export let test = "teste";
     
     const listRef = ref(storage, 'images');
     listAll(listRef).then((res) => {
@@ -85,38 +105,37 @@
           if(i === allImages-1) {
             storageImg = url;
           }
-          console.log(storageImg);
+          // console.log(storageImg);
           }).catch((error) => {
             console.log('Something went wrong');
           });
         });
       });
-    
 
     /*-------------Send E-mail--------------*/
 
     document.getElementById('send-email-btn').onclick = function(){
-      // console.log(storageImg);
       let email = document.getElementById("email").value;
       Email.send({
       Host: "smtp.gmail.com",
       Username : "lucienne.roberts.darq@gmail.com",
-      Password : "",
+      Password : emailPassword,
       To : email,
       From : "lucienne.roberts.darq@gmail.com",
       Subject : "test subject",
       Body : "<img src='" + storageImg + "' />",
       }).then(
-        message => alert("mail sent successfully to " + email)
+        message => alert("mail sent successfully to " + email),
+        downloadImage()
       );
     }
 
-    // document.getElementById('download-btn').onclick = function(){
-    //   var link = document.createElement('a');
-    //   link.download = 'filename.png';
-    //   link.href = document.querySelector('canvas').toDataURL()
-    //   link.click();
-    // }
+    function downloadImage() {
+      var link = document.createElement('a');
+      link.download = 'filename.png';
+      link.href = document.querySelector('canvas').toDataURL()
+      link.click();
+    }
   
   </script>
 </body>

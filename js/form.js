@@ -3,95 +3,87 @@ let result = document.querySelector('.result');
 function getLetter() {
   text = document.getElementById("message").value;
   letters = text.split('');
-  
-  clearText();
+
   result.style.display = "flex";
 
   for (var i = 0 ; i < letters.length ; i++) {
 
     if(letters[i] === 'a' || letters[i] === 'A') {
-      finalMessage.push(a)
+      finalMessage.push(letter_a)
     }
     else if(letters[i] === 'b' || letters[i] === 'B') {
-      finalMessage.push(b)
+      finalMessage.push(letter_b)
     }
     else if(letters[i] === 'c' || letters[i] === 'C') {
-      finalMessage.push(c)
+      finalMessage.push(letter_c)
     }
     else if(letters[i] === 'd' || letters[i] === 'D') {
-      finalMessage.push(d)
+      finalMessage.push(letter_d)
     }
-    else if(letters[i] === 'e' || letters[i] === 'D') {
-      finalMessage.push(e)
+    else if(letters[i] === 'e' || letters[i] === 'E') {
+      finalMessage.push(letter_e)
     }
     else if(letters[i] === 'f' || letters[i] === 'F') {
-      finalMessage.push(f)
+      finalMessage.push(letter_f)
     }
     else if(letters[i] === 'g' || letters[i] === 'G') {
-      finalMessage.push(g)
+      finalMessage.push(letter_g)
     }
     else if(letters[i] === 'h' || letters[i] === 'H') {
-      finalMessage.push(h)
+      finalMessage.push(letter_h)
     }
     else if(letters[i] === 'i' || letters[i] === 'I') {
-      finalMessage.push(i)
+      finalMessage.push(letter_i)
     }
     else if(letters[i] === 'j' || letters[i] === 'J') {
-      finalMessage.push(j)
+      finalMessage.push(letter_j)
     }
     else if(letters[i] === 'k' || letters[i] === 'K') {
-      finalMessage.push(k)
+      finalMessage.push(letter_k)
     }
     else if(letters[i] === 'l' || letters[i] === 'L') {
-      finalMessage.push(l)
+      finalMessage.push(letter_l)
     }
     else if(letters[i] === 'm' || letters[i] === 'M') {
-      finalMessage.push(m)
+      finalMessage.push(letter_m)
     }
     else if(letters[i] === 'n' || letters[i] === 'N') {
-      finalMessage.push(n)
+      finalMessage.push(letter_n)
     }
     else if(letters[i] === 'o' || letters[i] === 'O') {
-      finalMessage.push(o)
+      finalMessage.push(letter_o)
     }
     else if(letters[i] === 'p' || letters[i] === 'P') {
-      finalMessage.push(p)
+      finalMessage.push(letter_p)
     }
     else if(letters[i] === 'q' || letters[i] === 'Q') {
-      finalMessage.push(q)
+      finalMessage.push(letter_q)
     }
     else if(letters[i] === 'r' || letters[i] === 'R') {
-      finalMessage.push(r)
+      finalMessage.push(letter_r)
     }
     else if(letters[i] === 's' || letters[i] === 'S') {
-      finalMessage.push(s)
+      finalMessage.push(letter_s)
     }
     else if(letters[i] === 't' || letters[i] === 'T') {
-      finalMessage.push(t)
+      finalMessage.push(letter_t)
     }
     else if(letters[i] === 'u' || letters[i] === 'U') {
-      finalMessage.push(u)
+      finalMessage.push(letter_u)
     }
     else if(letters[i] === 'w' || letters[i] === 'W') {
-      finalMessage.push(w)
+      finalMessage.push(letter_w)
     }
     else if(letters[i] === 'x' || letters[i] === 'X') {
-      finalMessage.push(x)
+      finalMessage.push(letter_x)
     }
     else if(letters[i] === 'y' || letters[i] === 'Y') {
-      finalMessage.push(y)
+      finalMessage.push(letter_y)
     }
     else if(letters[i] === 'z' || letters[i] === 'Z') {
-      finalMessage.push(z)
+      finalMessage.push(letter_z)
     }
 
   }
   lettersCount += ((cols * rectSize) + rectSize) * letters.length;
-}
-
-function clearText() {
-  lettersCount = 0;
-  text = 0;
-  finalMessage = [];
-  result.style.display = "none";
 }

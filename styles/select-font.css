@@ -1,0 +1,32 @@
+.font-selector {
+  background-color: #101010;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  /* display: none; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+.font-selector h2{
+  color: white;
+  margin-top: -6rem;
+}
+
+.fonts-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.fonts-list button{
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+}
+
+.fonts-list button img{
+  width: 324px;
+}
