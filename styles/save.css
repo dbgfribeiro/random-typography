@@ -19,7 +19,7 @@
 }
 
 
-form input{
+.send-email input{
   background-color: transparent;
   border-style: none;
   border-bottom: 1px solid #fff;
@@ -29,7 +29,7 @@ form input{
   height: 72px;
   font-size: 2rem;
 }
-form button{
+.send-email button{
   background-color: white;
   border-style: none;
   width: 186px;
