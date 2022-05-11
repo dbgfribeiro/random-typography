@@ -47,11 +47,11 @@
 
     <div class="send-email">
       <h2>Send it to your email!</h2>
-      <form method="post">
+      <!-- <form method="post"> -->
         <input type="text" placeholder="Your e-mail" id="email">
         <button type="submit" id="send-email-btn">Send</button>
         <!-- <input type="submit" value="Send" id="send-e-mail" onclick="sendEmail()"> -->
-      </form>
+      <!-- </form> -->
       <a href="gallery.html">Just take me to the gallery</a>
     </div>
     
@@ -116,19 +116,20 @@
     /*-------------Send E-mail--------------*/
 
     document.getElementById('send-email-btn').onclick = function(){
-      let email = document.getElementById('email').value;
-      Email.send({
-      Host: "smtp.gmail.com",
-      Username : "lucienne.roberts.darq@gmail.com",
-      Password : 'acdf123456',
-      To : email,
-      From : "lucienne.roberts.darq@gmail.com",
-      Subject : "test subject",
-      Body : "<img src='" + storageImg + "' />",
-      }).then(
-        message => alert("mail sent successfully to " + email),
-        downloadImage()
-      );
+      // let email = document.getElementById('email').value;
+      // Email.send({
+      // Host: "smtp.gmail.com",
+      // Username : "lucienne.roberts.darq@gmail.com",
+      // Password : emailPassword,
+      // To : email,
+      // From : "lucienne.roberts.darq@gmail.com",
+      // Subject : "test subject",
+      // Body : "<img src='" + storageImg + "' />",
+      // }).then(
+      //   message => alert("mail sent successfully to " + email),
+      //   downloadImage()
+      // );
+      downloadImage();
     }
 
     function downloadImage() {
