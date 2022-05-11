@@ -134,7 +134,7 @@
 
     function downloadImage() {
       var link = document.createElement('a');
-      link.download = 'filename.png';
+      link.download = 'myMessage.png';
       link.href = document.querySelector('canvas').toDataURL()
       link.click();
     }

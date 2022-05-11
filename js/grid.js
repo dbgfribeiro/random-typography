@@ -38,7 +38,7 @@ function draw() {
 
         if (finalMessage[l][row][col] === '#') {
           noStroke();
-          fill('#1f1f1f');
+          noFill();
           rect(x, y, rectSize, rectSize);
 
           fill(fillShape.r, fillShape.g, fillShape.b);
