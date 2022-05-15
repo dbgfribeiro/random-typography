@@ -13,7 +13,7 @@ const fillShape = { r: 0, g: 0, b: 0};
 let selectedColor;
 
 function setup() {
-  let cnv = createCanvas(400, rectSize*rows);
+  let cnv = createCanvas(lettersCount-rectSize, rectSize*rows);
   cnv.parent('canvas-container');
 }
 
@@ -82,5 +82,12 @@ function setShape() {
   noLoop();
 }
 
-function setWidth() {
+function windowResized() {
+  if (lettersCount >= windowWidth) {
+    rectSize = 10;
+  }
+  else {
+    rectSize = 20;
+  }
+  resizeCanvas(lettersCount-rectSize, rectSize*rows, false);
 }

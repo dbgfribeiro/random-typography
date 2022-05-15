@@ -62,7 +62,6 @@
   <script src="./js/form.js"></script>
   <script src="./js/grid.js"></script>
   <script src="./js/firebase.js"></script>
-  <script src="./js/secret.js"></script>
   <script src="./js/fonts.js"></script>
 
   <script type="module">
@@ -106,7 +105,6 @@
           if(i === allImages-1) {
             storageImg = url;
           }
-          // console.log(storageImg);
           }).catch((error) => {
             console.log('Something went wrong');
           });
@@ -119,11 +117,11 @@
       let email = document.getElementById('email').value;
 
       Email.send({
-        SecureToken : "52ced6f7-322e-4db9-9d73-d5b8966eb6e8",
+        SecureToken : "8669c155-e3a2-40f7-be81-0fd163c98b4d",
         To : email,
         From : "lucienne.roberts.darq@gmail.com",
         Subject : "Lucinne Roberts Exhibition",
-        Body : "Here is your message. Thank you for the visit!",
+        Body : "Here is your message. Thank you for visiting!",
         Attachments : [
         {
           name : "yourMessage.png",
