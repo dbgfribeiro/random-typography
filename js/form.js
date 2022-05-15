@@ -1,4 +1,5 @@
 let result = document.querySelector('.result');
+let font = "";
 
 function getLetter() {
   text = document.getElementById("message").value;

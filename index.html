@@ -49,9 +49,10 @@
     <div class="send-email">
       <h2>Send it to your email!</h2>
       <!-- <form method="post"> -->
+      <form action="gallery.html">
         <input type="text" placeholder="Your e-mail" id="email">
         <button type="submit" id="send-email-btn">Send</button>
-        <!-- <input type="submit" value="Send" id="send-e-mail" onclick="sendEmail()"> -->
+      </form>
       <!-- </form> -->
       <a href="gallery.html">Just take me to the gallery</a>
     </div>
@@ -137,7 +138,7 @@
     function downloadImage() {
       var link = document.createElement('a');
       link.download = 'myMessage.png';
-      link.href = document.querySelector('canvas').toDataURL()
+      link.href = document.querySelector('canvas').toDataURL();
       link.click();
     }
   

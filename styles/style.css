@@ -7,7 +7,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 72px #101010 inset !important;
+  -webkit-box-shadow: 0 0 0 72px #efefef inset !important;
+  filter: invert(100);
 }
 
 input:focus,
@@ -65,7 +66,7 @@ h2 {
   border-style: none;
   border-bottom: 1px solid #fff;
   color: #ffff;
-  width: 648px;
+  width: 45%;
   padding: 16px;
   height: 72px;
   font-size: 2rem;
@@ -73,7 +74,7 @@ h2 {
 .form button{
   background-color: white;
   border-style: none;
-  width: 186px;
+  width: 148px;
   height: 72px;
   padding: 16px;
   margin-left: 1rem;

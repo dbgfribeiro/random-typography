@@ -1,5 +1,4 @@
 let allFonts = ['alex', 'carlota', 'francisca'];
-let font = "";
 let randomType = false;
 
 document.getElementById('random').onclick = function() {
@@ -7,7 +6,6 @@ document.getElementById('random').onclick = function() {
   document.querySelector('.form').style.display = 'flex';
   randomType = true;
 }
-
 
 let fontBook = document.querySelector('.fonts-list')
 fontBook.querySelectorAll('button').forEach(el => {

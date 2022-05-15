@@ -8,17 +8,13 @@
   align-items: center;
   gap: 10rem;
 }
-
 .send-email h2{
   color: white;
 }
-
 .send-email a{
   color: white;
   font-size: 1.5rem;
 }
-
-
 .send-email input{
   background-color: transparent;
   border-style: none;
@@ -32,7 +28,7 @@
 .send-email button{
   background-color: white;
   border-style: none;
-  width: 186px;
+  width: 148px;
   height: 72px;
   padding: 16px;
   margin-left: 1rem;
