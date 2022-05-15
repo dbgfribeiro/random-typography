@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/result.css">
   <link rel="stylesheet" href="./styles/save.css">
   <link rel="stylesheet" href="./styles/select-font.css">
-  <title>Random Typography v2</title>
+  <title>Random Typography</title>
 </head>
 <body>  
   <main>
@@ -48,12 +47,10 @@
 
     <div class="send-email">
       <h2>Send it to your email!</h2>
-      <!-- <form method="post"> -->
       <form action="gallery.html">
         <input type="text" placeholder="Your e-mail" id="email">
         <button type="submit" id="send-email-btn">Send</button>
       </form>
-      <!-- </form> -->
       <a href="gallery.html">Just take me to the gallery</a>
     </div>
     
@@ -61,7 +58,7 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="./js/alphabeth.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="./js/form.js"></script>
   <script src="./js/grid.js"></script>
   <script src="./js/firebase.js"></script>
@@ -119,19 +116,22 @@
     /*-------------Send E-mail--------------*/
 
     document.getElementById('send-email-btn').onclick = function(){
-      // let email = document.getElementById('email').value;
-      // Email.send({
-      // Host: "smtp.gmail.com",
-      // Username : "lucienne.roberts.darq@gmail.com",
-      // Password : emailPassword,
-      // To : email,
-      // From : "lucienne.roberts.darq@gmail.com",
-      // Subject : "test subject",
-      // Body : "<img src='" + storageImg + "' />",
-      // }).then(
-      //   message => alert("mail sent successfully to " + email),
-      //   downloadImage()
-      // );
+      let email = document.getElementById('email').value;
+
+      Email.send({
+        SecureToken : "243f8bda-f5c4-4dac-82c0-351bb71f6b0d",
+        To : email,
+        From : "lucienne.roberts.darq@gmail.com",
+        Subject : "Lucinne Roberts Exhibition",
+        Body : "Here is your message. Thank you for the visit!",
+        Attachments : [
+        {
+          name : "yourMessage.png",
+          path : storageImg
+        }]
+      }).then(
+        message => alert("mail sent successfully to " + email),
+      );
       downloadImage();
     }
 
