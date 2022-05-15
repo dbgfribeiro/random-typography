@@ -8,80 +8,87 @@ function getLetter() {
 
   for (var i = 0 ; i < letters.length ; i++) {
 
+    if(randomType === true) {
+      font = allFonts[Math.floor(Math.random()*allFonts.length)];
+    }
+    else{
+      font = selectedFont;
+    }
+
     if(letters[i] === 'a' || letters[i] === 'A') {
-      finalMessage.push(letter_a)
+      finalMessage.push(fonts[font].a)
     }
     else if(letters[i] === 'b' || letters[i] === 'B') {
-      finalMessage.push(letter_b)
+      finalMessage.push(fonts[font].b)
     }
     else if(letters[i] === 'c' || letters[i] === 'C') {
-      finalMessage.push(letter_c)
+      finalMessage.push(fonts[font].c)
     }
     else if(letters[i] === 'd' || letters[i] === 'D') {
-      finalMessage.push(letter_d)
+      finalMessage.push(fonts[font].d)
     }
     else if(letters[i] === 'e' || letters[i] === 'E') {
-      finalMessage.push(letter_e)
+      finalMessage.push(fonts[font].e)
     }
     else if(letters[i] === 'f' || letters[i] === 'F') {
-      finalMessage.push(letter_f)
+      finalMessage.push(fonts[font].f)
     }
     else if(letters[i] === 'g' || letters[i] === 'G') {
-      finalMessage.push(letter_g)
+      finalMessage.push(fonts[font].g)
     }
     else if(letters[i] === 'h' || letters[i] === 'H') {
-      finalMessage.push(letter_h)
+      finalMessage.push(fonts[font].h)
     }
     else if(letters[i] === 'i' || letters[i] === 'I') {
-      finalMessage.push(letter_i)
+      finalMessage.push(fonts[font].i)
     }
     else if(letters[i] === 'j' || letters[i] === 'J') {
-      finalMessage.push(letter_j)
+      finalMessage.push(fonts[font].j)
     }
     else if(letters[i] === 'k' || letters[i] === 'K') {
-      finalMessage.push(letter_k)
+      finalMessage.push(fonts[font].k)
     }
     else if(letters[i] === 'l' || letters[i] === 'L') {
-      finalMessage.push(letter_l)
+      finalMessage.push(fonts[font].l)
     }
     else if(letters[i] === 'm' || letters[i] === 'M') {
-      finalMessage.push(letter_m)
+      finalMessage.push(fonts[font].m)
     }
     else if(letters[i] === 'n' || letters[i] === 'N') {
-      finalMessage.push(letter_n)
+      finalMessage.push(fonts[font].n)
     }
     else if(letters[i] === 'o' || letters[i] === 'O') {
-      finalMessage.push(letter_o)
+      finalMessage.push(fonts[font].o)
     }
     else if(letters[i] === 'p' || letters[i] === 'P') {
-      finalMessage.push(letter_p)
+      finalMessage.push(fonts[font].p)
     }
     else if(letters[i] === 'q' || letters[i] === 'Q') {
-      finalMessage.push(letter_q)
+      finalMessage.push(fonts[font].q)
     }
     else if(letters[i] === 'r' || letters[i] === 'R') {
-      finalMessage.push(letter_r)
+      finalMessage.push(fonts[font].r)
     }
     else if(letters[i] === 's' || letters[i] === 'S') {
-      finalMessage.push(letter_s)
+      finalMessage.push(fonts[font].s)
     }
     else if(letters[i] === 't' || letters[i] === 'T') {
-      finalMessage.push(letter_t)
+      finalMessage.push(fonts[font].t)
     }
     else if(letters[i] === 'u' || letters[i] === 'U') {
-      finalMessage.push(letter_u)
+      finalMessage.push(fonts[font].u)
     }
     else if(letters[i] === 'w' || letters[i] === 'W') {
-      finalMessage.push(letter_w)
+      finalMessage.push(fonts[font].w)
     }
     else if(letters[i] === 'x' || letters[i] === 'X') {
-      finalMessage.push(letter_x)
+      finalMessage.push(fonts[font].x)
     }
     else if(letters[i] === 'y' || letters[i] === 'Y') {
-      finalMessage.push(letter_y)
+      finalMessage.push(fonts[font].y)
     }
     else if(letters[i] === 'z' || letters[i] === 'Z') {
-      finalMessage.push(letter_z)
+      finalMessage.push(fonts[font].z)
     }
 
   }

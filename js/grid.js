@@ -1,4 +1,3 @@
-cnv = document.querySelector('canvas');
 let rectSize;
 let text, letters = [];
 let cols = 6;
@@ -9,7 +8,9 @@ let finalMessage = []
 
 const shapes = ['rectangle', 'triangle', 'circle'];
 let randomShape = null;
+const rgb = ['red' , 'green', 'blue'];
 const fillShape = { r: 0, g: 0, b: 0};
+let selectedColor;
 
 function setup() {
   let cnv = createCanvas(400, rectSize*rows);
@@ -41,7 +42,17 @@ function draw() {
           noFill();
           rect(x, y, rectSize, rectSize);
 
-          fill(fillShape.r, fillShape.g, fillShape.b);
+          selectedColor = rgb[Math.floor(Math.random()*rgb.length)];
+
+          if (selectedColor === 'red') {
+            fill(fillShape.r, 55, 55);
+          }
+          else if (selectedColor === 'green') {
+            fill(55, fillShape.g, 55);
+          }
+          else if (selectedColor === 'blue') {
+            fill(55, 55, fillShape.b);
+          }
 
           if(shapes[randomShape] === 'rectangle') {
             rect(x, y, rectSize, rectSize);
@@ -64,9 +75,9 @@ function draw() {
 }
 
 function setShape() {
-  fillShape.r = random(0,255);
-  fillShape.g = random(0,255);
-  fillShape.b = random(0,255);
+  fillShape.r = random(55,255);
+  fillShape.g = random(55,255);
+  fillShape.b = random(55,255);
   randomShape = Math.floor(Math.random() * shapes.length);
   noLoop();
 }
