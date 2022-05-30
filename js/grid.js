@@ -8,8 +8,15 @@ let finalMessage = []
 
 const shapes = ['rectangle', 'triangle', 'circle'];
 let randomShape = null;
-const rgb = ['red' , 'green', 'blue'];
-const fillShape = { r: 0, g: 0, b: 0};
+const palette = [
+  '#FEFC45',
+  '#49FC3D',
+  '#EF1F2A',
+  '#0033F9',
+  '#FF1CB2',
+  '#FF5C00',
+  '#962EFF'
+]
 let selectedColor;
 
 function setup() {
@@ -42,17 +49,8 @@ function draw() {
           noFill();
           rect(x, y, rectSize, rectSize);
 
-          selectedColor = rgb[Math.floor(Math.random()*rgb.length)];
-
-          if (selectedColor === 'red') {
-            fill(fillShape.r, 55, 55);
-          }
-          else if (selectedColor === 'green') {
-            fill(55, fillShape.g, 55);
-          }
-          else if (selectedColor === 'blue') {
-            fill(55, 55, fillShape.b);
-          }
+          selectedColor = palette[Math.floor(Math.random()*palette.length)];
+          fill(selectedColor);
 
           if(shapes[randomShape] === 'rectangle') {
             rect(x, y, rectSize, rectSize);
@@ -75,9 +73,6 @@ function draw() {
 }
 
 function setShape() {
-  fillShape.r = random(55,255);
-  fillShape.g = random(55,255);
-  fillShape.b = random(55,255);
   randomShape = Math.floor(Math.random() * shapes.length);
   noLoop();
 }
