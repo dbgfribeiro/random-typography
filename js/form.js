@@ -79,6 +79,9 @@ function getLetter() {
     else if(letters[i] === 'u' || letters[i] === 'U') {
       finalMessage.push(fonts[font].u)
     }
+    else if(letters[i] === 'v' || letters[i] === 'V') {
+      finalMessage.push(fonts[font].v)
+    }
     else if(letters[i] === 'w' || letters[i] === 'W') {
       finalMessage.push(fonts[font].w)
     }

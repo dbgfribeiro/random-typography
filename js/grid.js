@@ -13,9 +13,6 @@ const palette = [
   '#49FC3D',
   '#EF1F2A',
   '#0033F9',
-  '#FF1CB2',
-  '#FF5C00',
-  '#962EFF'
 ]
 let selectedColor;
 
